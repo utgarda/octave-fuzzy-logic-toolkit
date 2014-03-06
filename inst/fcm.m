@@ -178,7 +178,7 @@ function [V, Mu, obj_fcn_history] = ...
                display_intermediate_results)
 
   ## Initialize the prototypes and the calculation.
-  V = init_cluster_prototypes (X, k);
+  V = fcm_init_prototype (X, k);
   obj_fcn_history = zeros (max_iterations);
   convergence_criterion = epsilon + 1;
   iteration = 0;
@@ -193,18 +193,18 @@ function [V, Mu, obj_fcn_history] = ...
   while (convergence_criterion > epsilon && ...
          ++iteration <= max_iterations)
     V_previous = V;
-    Mu = update_cluster_membership (V, X, m, k, n, sqr_dist);
+    Mu = fcm_update_membership_fcn (V, X, m, k, n, sqr_dist);
     Mu_m = Mu .^ m;
-    V = update_cluster_prototypes (Mu_m, X, k);
+    V = fcm_update_cluster_centers (Mu_m, X, k);
     sqr_dist = square_distance_matrix (X, V);
     obj_fcn_history(iteration) = ...
-      compute_cluster_obj_fcn (Mu_m, sqr_dist);
+      fcm_compute_objective_fcn (Mu_m, sqr_dist);
     if (display_intermediate_results)
       printf ("Iteration count = %d,  Objective fcn = %8.6f\n", ...
                iteration, obj_fcn_history(iteration));
     endif
     convergence_criterion = ...
-      compute_cluster_convergence (V, V_previous);
+      fcm_compute_convergence_criterion (V, V_previous);
   endwhile
 
   ## Remove extraneous entries from the tail of the objective
