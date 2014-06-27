@@ -1,4 +1,4 @@
-## Copyright (C) 2011-2012 L. Markowsky <lmarkov@users.sourceforge.net>
+## Copyright (C) 2011-2014 L. Markowsky <lmarkov@users.sourceforge.net>
 ##
 ## This file is part of the fuzzy-logic-toolkit.
 ##
@@ -68,7 +68,7 @@
 ## Keywords:      fuzzy-logic-toolkit fuzzy inference system fis
 ## Directory:     fuzzy-logic-toolkit/inst/
 ## Filename:      writefis.m
-## Last-Modified: 20 Aug 2012
+## Last-Modified: 26 Jun 2014
 
 function writefis (fis, filename = 'filename.fis', dialog = 'dummy')
 
@@ -132,8 +132,9 @@ function fid = open_output_file (filename, use_gui)
   ## choose an output filename.
 
   if (use_gui)
-    system_command = sprintf ("zenity --file-selection --filename=%s --save --confirm-overwrite; echo $file",
-                              filename);
+    system_command = sprintf ("zenity --file-selection --filename=%s \
+                              --save --confirm-overwrite; \
+                              echo $file", filename);
     [dialog_error, filename] = system (file=system_command);
     if (dialog_error)
       puts ("Type 'help writefis' for more information.\n");

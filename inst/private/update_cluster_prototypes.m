@@ -1,4 +1,4 @@
-## Copyright (C) 2011-2012 L. Markowsky <lmarkov@users.sourceforge.net>
+## Copyright (C) 2011-2014 L. Markowsky <lmarkov@users.sourceforge.net>
 ##
 ## This file is part of the fuzzy-logic-toolkit.
 ##
@@ -17,20 +17,20 @@
 ## see <http://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {Function File} {@var{V} =} fcm_update_cluster_centers (@var{Mu_m}, @var{X}, @var{k})
+## @deftypefn {Function File} {@var{V} =} update_cluster_prototypes (@var{Mu_m}, @var{X}, @var{k})
 ##
 ## Update the cluster centers to correspond to the given membership
 ## function values.
 ##
-## @seealso{fcm, fcm_init_prototype, fcm_update_membership_fcn, fcm_compute_objective_fcn, fcm_compute_convergence_criterion}
+## @seealso{fcm, gustafson_kessel, init_cluster_prototypes, update_cluster_membership, compute_cluster_obj_fcn, compute_cluster_convergence}
 ##
 ## @end deftypefn
 
 ## Author:        L. Markowsky
-## Keywords:      fuzzy-logic-toolkit fuzzy partition clustering fcm
+## Keywords:      fuzzy-logic-toolkit fuzzy partition clustering
 ## Directory:     fuzzy-logic-toolkit/inst/private/
-## Filename:      fcm_update_cluster_centers.m
-## Last-Modified: 20 Aug 2012
+## Filename:      update_cluster_prototypes.m
+## Last-Modified: 2 Sep 2012
 
 ##----------------------------------------------------------------------
 ## Note:     This function is an implementation of Equation 13.5 in
@@ -39,13 +39,13 @@
 ##           (International Edition). 
 ##----------------------------------------------------------------------
 
-function V = fcm_update_cluster_centers (Mu_m, X, k)
+function V = update_cluster_prototypes (Mu_m, X, k)
 
   V = Mu_m * X;
   sum_Mu_m = sum (Mu_m');
 
   if (prod (sum_Mu_m) == 0)
-    error ("division by 0 in function fcm_update_cluster_centers\n");
+    error ("division by 0 in function update_cluster_prototypes\n");
   endif
 
   for i = 1 : k

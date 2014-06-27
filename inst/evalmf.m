@@ -1,4 +1,4 @@
-## Copyright (C) 2011-2012 L. Markowsky <lmarkov@users.sourceforge.net>
+## Copyright (C) 2011-2014 L. Markowsky <lmarkov@users.sourceforge.net>
 ##
 ## This file is part of the fuzzy-logic-toolkit.
 ##
@@ -61,7 +61,7 @@
 ## Keywords:      fuzzy-logic-toolkit fuzzy membership evaluate
 ## Directory:     fuzzy-logic-toolkit/inst/
 ## Filename:      evalmf.m
-## Last-Modified: 19 Aug 2012
+## Last-Modified: 26 Jun 2014
 
 function y = evalmf (x, params, mf_type, hedge = 0, not_flag = false)
 
@@ -97,8 +97,7 @@ endfunction
 %! params = [25 50 75];
 %! mf_type = 'trimf';
 %! y = evalmf(x, params, mf_type);
-%! figure('NumberTitle', 'off', 'Name', "evalmf(0:100, [25 50 75], ...
-%!        'trimf')");
+%! figure('NumberTitle', 'off', 'Name', "evalmf(0:100, [25 50 75], 'trimf')");
 %! plot(x, y, 'LineWidth', 2)
 %! ylim([-0.1 1.1]);
 %! xlabel('Crisp Input Value', 'FontWeight', 'bold');

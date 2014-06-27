@@ -1,4 +1,4 @@
-## Copyright (C) 2011-2012 L. Markowsky <lmarkov@users.sourceforge.net>
+## Copyright (C) 2011-2014 L. Markowsky <lmarkov@users.sourceforge.net>
 ##
 ## This file is part of the fuzzy-logic-toolkit.
 ##
@@ -17,19 +17,19 @@
 ## see <http://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {Function File} {@var{Mu} =} fcm_update_membership_fcn (@var{V}, @var{X}, @var{m}, @var{k}, @var{n}, @var{sqr_dist})
+## @deftypefn {Function File} {@var{Mu} =} update_cluster_membership (@var{V}, @var{X}, @var{m}, @var{k}, @var{n}, @var{sqr_dist})
 ##
 ## Compute Mu for each (cluster center, input point) pair.
 ##
-## @seealso{fcm, fcm_init_prototype, fcm_update_cluster_centers, fcm_compute_objective_fcn, fcm_compute_convergence_criterion}
+## @seealso{fcm, gustafson_kessel, init_cluster_prototypes, update_cluster_prototypes, compute_cluster_obj_fcn, compute_cluster_convergence}
 ##
 ## @end deftypefn
 
 ## Author:        L. Markowsky
-## Keywords:      fuzzy-logic-toolkit fuzzy partition clustering fcm
+## Keywords:      fuzzy-logic-toolkit fuzzy partition clustering
 ## Directory:     fuzzy-logic-toolkit/inst/private/
-## Filename:      fcm_update_membership_fcn.m
-## Last-Modified: 20 Aug 2012
+## Filename:      update_cluster_membership.m
+## Last-Modified: 2 Sep 2012
 
 ##----------------------------------------------------------------------
 ## Note:     This function is an implementation of Equation 13.4 in
@@ -40,7 +40,7 @@
 ##           p. 63.
 ##----------------------------------------------------------------------
 
-function Mu = fcm_update_membership_fcn (V, X, m, k, n, sqr_dist)
+function Mu = update_cluster_membership (V, X, m, k, n, sqr_dist)
 
   Mu = zeros (k, n);
 
@@ -55,7 +55,7 @@ function Mu = fcm_update_membership_fcn (V, X, m, k, n, sqr_dist)
         if (summation != 0)
           Mu(i, j) = 1.0 / summation;
         else
-          error ("division by 0 in fcm_update_membership_fcn'\n");
+          error ("division by 0 in update_cluster_membership'\n");
         endif
       endfor
     endfor

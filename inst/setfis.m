@@ -1,4 +1,4 @@
-## Copyright (C) 2011-2012 L. Markowsky <lmarkov@users.sourceforge.net>
+## Copyright (C) 2011-2014 L. Markowsky <lmarkov@users.sourceforge.net>
 ##
 ## This file is part of the fuzzy-logic-toolkit.
 ##
@@ -90,7 +90,7 @@ function fis = setfis (fis, arg2, arg3, arg4 = 'dummy', ...
   switch (nargin)
     case 3  fis = setfis_three_args (fis, arg2, arg3);
     case 5  fis = setfis_five_args (fis, arg2, arg3, arg4, arg5);
-    case 7  fis = setfis_seven_args (fis, arg2, arg3, arg4, arg5, ...
+    case 7  fis = setfis_six_args (fis, arg2, arg3, arg4, arg5, ...
                                    arg6, arg7);
     otherwise
             puts ("Type 'help setfis' for more information.\n");

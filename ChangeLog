@@ -1,3 +1,25 @@
+2014-06-26 L. Markowsky <lmarkov@users.sourceforge.net>
+
+  * Version 0.4.4 released.
+  * ChangeLog: Updated file.
+  * CITATION: New file. References to two published papers about the
+      fuzzy-logic-toolkit.
+  * DESCRIPTION: Updated file.
+  * NEWS: Updated file.
+  * inst/readfis.m: Modified to workaround change to strsplit beginning
+      in Octave 3.8.0.
+  * inst/evalmf.m: Removed continuation "..." within double quoted string
+      by writing instruction on one line to maintain compatibility with
+      future versions of Octave.
+  * inst/writefis.m: Changed continuation within double quoted string from
+      "..." to "\" to maintain compatibility with future versions of Octave.
+  * inst/*.m: Updated copyright notices.
+  * inst/*.fis: Updated copyright notices.
+  * inst/private/*.m: Updated copyright notices.
+  * Demos tested under: Fedora 20/Octave 3.8.1
+  * Demos tested under: Fedora 20/Octave 3.8.0
+  * Demos tested under: Fedora 20/Octave 3.6.4
+
 2012-10-02 L. Markowsky <lmarkov@users.sourceforge.net>
 
   * Version 0.4.2 released.

@@ -1,4 +1,4 @@
-## Copyright (C) 2011-2012 L. Markowsky <lmarkov@users.sourceforge.net>
+## Copyright (C) 2011-2014 L. Markowsky <lmarkov@users.sourceforge.net>
 ##
 ## This file is part of the fuzzy-logic-toolkit.
 ##
@@ -17,23 +17,23 @@
 ## see <http://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {Function File} {@var{convergence_criterion} =} fcm_compute_convergence_criterion (@var{V}, @var{V_previous})
+## @deftypefn {Function File} {@var{convergence_criterion} =} compute_cluster_convergence (@var{V}, @var{V_previous})
 ##
 ## Compute the sum of the changes in position (using the Euclidean
-## distance) of the cluster centers.
+## distance) of the cluster prototypes.
 ##
-## @seealso{fcm, fcm_init_prototype, fcm_update_membership_fcn, fcm_update_cluster_centers, fcm_compute_objective_fcn}
+## @seealso{fcm, gustafson_kessel, init_cluster_prototypes, update_cluster_membership, update_cluster_prototypes, compute_cluster_obj_fcn}
 ##
 ## @end deftypefn
 
 ## Author:        L. Markowsky
-## Keywords:      fuzzy-logic-toolkit fuzzy partition clustering fcm
+## Keywords:      fuzzy-logic-toolkit fuzzy partition clustering
 ## Directory:     fuzzy-logic-toolkit/inst/private/
-## Filename:      fcm_compute_convergence_criterion.m
-## Last-Modified: 20 Aug 2012
+## Filename:      compute_cluster_convergence.m
+## Last-Modified: 2 Sep 2012
 
 function convergence_criterion = ...
-  fcm_compute_convergence_criterion (V, V_previous)
+  compute_cluster_convergence (V, V_previous)
 
   V_delta = V - V_previous;
   convergence_criterion = sum (sqrt (sum (V_delta .* V_delta)'));

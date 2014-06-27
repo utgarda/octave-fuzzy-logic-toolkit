@@ -1,4 +1,4 @@
-## Copyright (C) 2011-2012 L. Markowsky <lmarkov@users.sourceforge.net>
+## Copyright (C) 2011-2014 L. Markowsky <lmarkov@users.sourceforge.net>
 ##
 ## This file is part of the fuzzy-logic-toolkit.
 ##
@@ -59,7 +59,7 @@
 ## Keywords:      fuzzy-logic-toolkit fuzzy inference system fis
 ## Directory:     fuzzy-logic-toolkit/inst/
 ## Filename:      readfis.m
-## Last-Modified: 20 Aug 2012
+## Last-Modified: 14 Jun 2014
 
 function fis = readfis (filename = '')
 
@@ -427,7 +427,11 @@ function [next_mf, line_num] = get_next_mf (fid, line_num, i, j, ...
   ##--------------------------------------------------------------------
 
   [line, line_num] = get_line (fid, line_num);
-  line_vec = discard_empty_strings (strsplit (line, "=':,[] \t", true));
+  if (compare_versions (OCTAVE_VERSION(), "3.8.0", ">="))
+    line_vec = discard_empty_strings (ostrsplit (line, "=':,[] \t", true));
+  else
+    line_vec = discard_empty_strings (strsplit (line, "=':,[] \t", true));
+  endif
   mf_index = sscanf (line_vec{1}, "MF %d", "C");
   mf_name = line_vec{2};
   mf_type = line_vec{3};
@@ -465,7 +469,11 @@ function [next_rule, line_num] = get_next_rule (fid, line_num, ...
                                                 num_inputs, num_outputs)
 
   [line, line_num] = get_line (fid, line_num);
-  line_vec = strsplit (line, ",():", true);
+  if (compare_versions (OCTAVE_VERSION(), "3.8.0", ">="))
+    line_vec = ostrsplit (line, ",():", true);
+  else
+    line_vec = strsplit (line, ",():", true);
+  endif
 
   ##--------------------------------------------------------------------
   ## Read antecedent.

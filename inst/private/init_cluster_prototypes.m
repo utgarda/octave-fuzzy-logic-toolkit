@@ -1,4 +1,4 @@
-## Copyright (C) 2011-2012 L. Markowsky <lmarkov@users.sourceforge.net>
+## Copyright (C) 2011-2014 L. Markowsky <lmarkov@users.sourceforge.net>
 ##
 ## This file is part of the fuzzy-logic-toolkit.
 ##
@@ -17,22 +17,22 @@
 ## see <http://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {Function File} {@var{V} =} fcm_init_prototype (@var{X}, @var{k})
+## @deftypefn {Function File} {@var{V} =} init_cluster_prototypes (@var{X}, @var{k})
 ##
 ## Initialize k cluster centers to random locations in the ranges
 ## given by the min/max values of each feature of the dataset.
 ##
-## @seealso{fcm, fcm_update_membership_fcn, fcm_update_cluster_centers, fcm_compute_objective_fcn, fcm_compute_convergence_criterion}
+## @seealso{fcm, gustafson_kessel, update_cluster_membership, update_cluster_prototypes, compute_cluster_obj_fcn, compute_cluster_convergence}
 ##
 ## @end deftypefn
 
 ## Author:        L. Markowsky
-## Keywords:      fuzzy-logic-toolkit fuzzy partition clustering fcm
+## Keywords:      fuzzy-logic-toolkit fuzzy partition clustering
 ## Directory:     fuzzy-logic-toolkit/inst/private/
-## Filename:      fcm_init_prototype.m
-## Last-Modified: 20 Aug 2012
+## Filename:      init_cluster_prototypes.m
+## Last-Modified: 2 Sep 2012
 
-function V = fcm_init_prototype (X, k)
+function V = init_cluster_prototypes (X, k)
 
   num_features = columns (X);
   min_feature_value = min (X);

@@ -1,4 +1,4 @@
-## Copyright (C) 2011-2012 L. Markowsky <lmarkov@users.sourceforge.net>
+## Copyright (C) 2011-2014 L. Markowsky <lmarkov@users.sourceforge.net>
 ##
 ## This file is part of the fuzzy-logic-toolkit.
 ##
@@ -17,19 +17,19 @@
 ## see <http://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {Function File} {@var{obj_fcn} =} fcm_compute_objective_fcn (@var{Mu_m}, @var{sqr_dist})
+## @deftypefn {Function File} {@var{obj_fcn} =} compute_cluster_obj_fcn (@var{Mu_m}, @var{sqr_dist})
 ##
 ## Compute the objective function for the current iteration.
 ##
-## @seealso{fcm, fcm_init_prototype, fcm_update_membership_fcn, fcm_update_cluster_centers, fcm_compute_convergence_criterion}
+## @seealso{fcm, gustafson_kessel, init_cluster_prototypes, update_cluster_membership, update_cluster_prototypes, compute_cluster_convergence}
 ##
 ## @end deftypefn
 
 ## Author:        L. Markowsky
-## Keywords:      fuzzy-logic-toolkit fuzzy partition clustering fcm
+## Keywords:      fuzzy-logic-toolkit fuzzy partition clustering
 ## Directory:     fuzzy-logic-toolkit/inst/private/
-## Filename:      fcm_compute_objective_fcn.m
-## Last-Modified: 20 Aug 2012
+## Filename:      compute_cluster_obj_fcn.m
+## Last-Modified: 2 Sep 2012
 
 ##----------------------------------------------------------------------
 ## Note:     This function is an implementation of Equation 13.3 in
@@ -38,7 +38,7 @@
 ##           (International Edition). 
 ##----------------------------------------------------------------------
 
-function obj_fcn = fcm_compute_objective_fcn (Mu_m, sqr_dist)
+function obj_fcn = compute_cluster_obj_fcn (Mu_m, sqr_dist)
 
   obj_fcn = sum (sum (Mu_m .* sqr_dist));
 
