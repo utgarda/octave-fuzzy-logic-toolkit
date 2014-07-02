@@ -80,7 +80,7 @@
 ## Keywords:      fuzzy-logic-toolkit fuzzy inference system fis
 ## Directory:     fuzzy-logic-toolkit/inst/
 ## Filename:      setfis.m
-## Last-Modified: 20 Aug 2012
+## Last-Modified: 1 Jul 2014
 
 ##----------------------------------------------------------------------
 
@@ -90,8 +90,8 @@ function fis = setfis (fis, arg2, arg3, arg4 = 'dummy', ...
   switch (nargin)
     case 3  fis = setfis_three_args (fis, arg2, arg3);
     case 5  fis = setfis_five_args (fis, arg2, arg3, arg4, arg5);
-    case 7  fis = setfis_six_args (fis, arg2, arg3, arg4, arg5, ...
-                                   arg6, arg7);
+    case 7  fis = setfis_seven_args (fis, arg2, arg3, arg4, arg5, ...
+                                     arg6, arg7);
     otherwise
             puts ("Type 'help setfis' for more information.\n");
             error ("setfis requires 3, 5, or 7 arguments\n");
